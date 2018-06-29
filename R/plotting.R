@@ -23,8 +23,7 @@
 #' @examples
 #' ## Generate a synthetic dataset
 #' dataset <- generate_dataset(type="p", num_genes=500, num_samples=300, num_groups=4)
-#' dist <- correlation_distance(dataset$expression)
-#' space <- reduce_dimensionality(dist, ndim=2)
+#' space <- reduce_dimensionality(dataset$expression, correlation_distance, ndim=2)
 #' groups <- dataset$sample_info$group_name
 #'
 #' ## Simply plot the samples
@@ -142,7 +141,7 @@ draw_trajectory_plot <- function(space, progression_group = NULL, path = NULL, c
 #' @param x A numeric matrix or data frame with one row per sample and one column per feature.
 #' @param time A numeric vector containing the inferred time points of each sample along a trajectory.
 #' @param progression_group \code{NULL} or a vector (or factor) containing the groupings of the samples (default \code{NULL}).
-#' @param modules \code{NULL} or a data frame as returned by \code{\link{extract.modules}}.
+#' @param modules \code{NULL} or a data frame as returned by \code{\link{extract_modules}}.
 #' @param show_labels_row \code{TRUE} if the labels of the rows are to be plotted (default \code{FALSE}).
 #' @param show_labels_col \code{TRUE} if the labels of the cols are to be plotted (default \code{FALSE}).
 #' @param scale_features \code{TRUE} if the values of each feature is to be scaled (default \code{TRUE}).
@@ -162,8 +161,7 @@ draw_trajectory_plot <- function(space, progression_group = NULL, path = NULL, c
 #' ## Generate a dataset
 #' dataset <- generate_dataset(type="s", num_genes=500, num_samples=300, num_groups=4)
 #' expression <- dataset$expression
-#' dist <- correlation_distance(expression)
-#' space <- reduce_dimensionality(dist, ndim=2)
+#' space <- reduce_dimensionality(expression, correlation_distance, ndim=2)
 #' groups <- dataset$sample_info$group_name
 #' traj <- infer_trajectory(space)
 #' time <- traj$time

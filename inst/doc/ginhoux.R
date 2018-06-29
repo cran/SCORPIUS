@@ -14,36 +14,13 @@ head(ginhoux$sample_info)
 ## ------------------------------------------------------------------------
 expression <- ginhoux$expression
 group_name <- ginhoux$sample_info$group_name
-dist <- correlation_distance(expression)
-
-## ------------------------------------------------------------------------
-dim(dist)
-plot(density(dist))
-
-## ------------------------------------------------------------------------
-space <- reduce_dimensionality(dist)
+space <- reduce_dimensionality(expression, correlation_distance, ndim = 3)
 
 ## ------------------------------------------------------------------------
 draw_trajectory_plot(space)
 
 ## ------------------------------------------------------------------------
 draw_trajectory_plot(space, progression_group = group_name)
-
-## ------------------------------------------------------------------------
-library(ggplot2)
-draw_trajectory_plot(space[, c(1, 3)]) + labs(y="Component 3")
-
-## ------------------------------------------------------------------------
-filt <- outlier_filter(dist)
-expression <- expression[filt, ]
-group_name <- group_name[filt]
-dist <- dist[filt, filt]
-space <- reduce_dimensionality(dist)
-
-## ------------------------------------------------------------------------
-draw_trajectory_plot(space[, c(1, 2)])
-draw_trajectory_plot(space[, c(1, 3)]) + labs(y = "Component 3")
-draw_trajectory_plot(space[, c(2, 3)]) + labs(x = "Component 2", y = "Component 3")
 
 ## ------------------------------------------------------------------------
 traj <- infer_trajectory(space)

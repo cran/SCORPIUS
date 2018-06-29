@@ -3,7 +3,7 @@ set.seed(4)
 
 ## ----message=FALSE-------------------------------------------------------
 library(SCORPIUS)
-dataset <- generate_dataset(type="poly", num_genes=500, num_samples=384, num_groups=4)
+dataset <- generate_dataset(type = "poly", num_genes = 500, num_samples = 384, num_groups = 4)
 
 ## ------------------------------------------------------------------------
 dataset$expression[1:6, 1:6]
@@ -14,14 +14,7 @@ head(dataset$sample_info)
 ## ------------------------------------------------------------------------
 expression <- dataset$expression
 group_name <- dataset$sample_info$group_name
-dist <- correlation_distance(expression)
-
-## ------------------------------------------------------------------------
-dim(dist)
-plot(density(dist))
-
-## ------------------------------------------------------------------------
-space <- reduce_dimensionality(dist)
+space <- reduce_dimensionality(expression, correlation_distance, ndim = 3)
 
 ## ------------------------------------------------------------------------
 draw_trajectory_plot(space)

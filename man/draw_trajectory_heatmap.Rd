@@ -22,7 +22,7 @@ draw_trajectory_heatmap(
 
 \item{progression_group}{\code{NULL} or a vector (or factor) containing the groupings of the samples (default \code{NULL}).}
 
-\item{modules}{\code{NULL} or a data frame as returned by \code{\link{extract.modules}}.}
+\item{modules}{\code{NULL} or a data frame as returned by \code{\link{extract_modules}}.}
 
 \item{show_labels_row}{\code{TRUE} if the labels of the rows are to be plotted (default \code{FALSE}).}
 
@@ -45,8 +45,7 @@ feature modules can be passed along to further enhance the visualisation.
 ## Generate a dataset
 dataset <- generate_dataset(type="s", num_genes=500, num_samples=300, num_groups=4)
 expression <- dataset$expression
-dist <- correlation_distance(expression)
-space <- reduce_dimensionality(dist, ndim=2)
+space <- reduce_dimensionality(expression, correlation_distance, ndim=2)
 groups <- dataset$sample_info$group_name
 traj <- infer_trajectory(space)
 time <- traj$time
