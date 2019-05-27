@@ -16,7 +16,7 @@ draw_trajectory_heatmap(
 )
 }
 \arguments{
-\item{x}{A numeric matrix or data frame with one row per sample and one column per feature.}
+\item{x}{A numeric matrix or a data frame with one row per sample and one column per feature.}
 
 \item{time}{A numeric vector containing the inferred time points of each sample along a trajectory.}
 
@@ -43,9 +43,9 @@ feature modules can be passed along to further enhance the visualisation.
 \examples{
 \dontrun{
 ## Generate a dataset
-dataset <- generate_dataset(type="s", num_genes=500, num_samples=300, num_groups=4)
+dataset <- generate_dataset(num_genes=500, num_samples=300, num_groups=4)
 expression <- dataset$expression
-space <- reduce_dimensionality(expression, correlation_distance, ndim=2)
+space <- reduce_dimensionality(expression, ndim=2)
 groups <- dataset$sample_info$group_name
 traj <- infer_trajectory(space)
 time <- traj$time

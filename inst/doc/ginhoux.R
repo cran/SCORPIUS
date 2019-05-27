@@ -1,45 +1,49 @@
-## ---- echo=FALSE---------------------------------------------------------
-set.seed(4)
+## ---- setseed, echo=FALSE------------------------------------------------
+set.seed(1)
 
-## ----message=FALSE-------------------------------------------------------
+## ----load_data, message=FALSE--------------------------------------------
 library(SCORPIUS)
 data(ginhoux)
 
-## ------------------------------------------------------------------------
+## ----show_expression-----------------------------------------------------
 ginhoux$expression[1:6, 1:6]
 
-## ------------------------------------------------------------------------
+## ----show_sample_info----------------------------------------------------
 head(ginhoux$sample_info)
 
-## ------------------------------------------------------------------------
+## ----perform_mds---------------------------------------------------------
 expression <- ginhoux$expression
 group_name <- ginhoux$sample_info$group_name
-space <- reduce_dimensionality(expression, correlation_distance, ndim = 3)
+space <- reduce_dimensionality(expression, "spearman", ndim = 3)
 
-## ------------------------------------------------------------------------
-draw_trajectory_plot(space)
+## ----show_dimred---------------------------------------------------------
+draw_trajectory_plot(space, progression_group = group_name, contour = TRUE)
 
-## ------------------------------------------------------------------------
-draw_trajectory_plot(space, progression_group = group_name)
-
-## ------------------------------------------------------------------------
+## ----infer_trajectory----------------------------------------------------
 traj <- infer_trajectory(space)
 
-## ------------------------------------------------------------------------
-draw_trajectory_plot(space, progression_group = group_name, path = traj$path)
+## ----plot_trajectory-----------------------------------------------------
+draw_trajectory_plot(
+  space, 
+  progression_group = group_name,
+  path = traj$path,
+  contour = TRUE
+)
 
-## ----find tafs-----------------------------------------------------------
+## ----find_tafs-----------------------------------------------------------
 gimp <- gene_importances(expression, traj$time, num_permutations = 0, num_threads = 8)
 gene_sel <- gimp[1:50,]
 expr_sel <- expression[,gene_sel$gene]
 
-## ----recalculate time----------------------------------------------------
-traj <- infer_trajectory(expr_sel)
+## ----echo=F--------------------------------------------------------------
+# reverse the trajectory. This does not change the results in any way,
+# other than the heatmap being ordered more logically.
+# traj <- reverse_trajectory(traj)
 
-## ----visualise tafs------------------------------------------------------
+## ----visualise_tafs, fig.keep='first'------------------------------------
 draw_trajectory_heatmap(expr_sel, traj$time, group_name)
 
-## ----moduled tafs--------------------------------------------------------
-modules <- extract_modules(scale_quantile(expr_sel), traj$time, verbose = F)
+## ----moduled_tafs, fig.keep='first'--------------------------------------
+modules <- extract_modules(scale_quantile(expr_sel), traj$time, verbose = FALSE)
 draw_trajectory_heatmap(expr_sel, traj$time, group_name, modules)
 

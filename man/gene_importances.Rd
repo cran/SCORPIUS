@@ -8,7 +8,7 @@ gene_importances(x, time, num_permutations = 0, ntree = 10000,
   ntree_perm = ntree/10, mtry = ncol(x) * 0.01, num_threads = 1, ...)
 }
 \arguments{
-\item{x}{A numeric matrix or data frame with \emph{M} rows (one per sample) and \emph{P} columns (one per feature).}
+\item{x}{A numeric matrix or a data frame with \emph{M} rows (one per sample) and \emph{P} columns (one per feature).}
 
 \item{time}{A numeric vector containing the inferred time points of each sample along a trajectory as returned by \code{\link{infer_trajectory}}.}
 
@@ -31,10 +31,10 @@ a data frame containing the importance of each feature for the given time line
 Calculates the feature importance of each column in \code{x} in trying to predict the time ordering.
 }
 \examples{
-dataset <- generate_dataset(type="s", num_genes=500, num_samples=300, num_groups=4)
+dataset <- generate_dataset(num_genes=500, num_samples=300, num_groups=4)
 expression <- dataset$expression
 group_name <- dataset$sample_info$group_name
-space <- reduce_dimensionality(expression, correlation_distance, ndim=2)
+space <- reduce_dimensionality(expression, ndim=2)
 traj <- infer_trajectory(space)
 # set ntree to at least 1000!
 gene_importances(expression, traj$time, num_permutations = 0, ntree = 1000)
