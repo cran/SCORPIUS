@@ -1,4 +1,4 @@
-fb12f7d9fb2ca07f8d0858bda9bf5ac3 *DESCRIPTION
+f3fd684b807e2ad140f9b0e8f3c2422f *DESCRIPTION
 1acbb82f6dcb2034fd0282ee28179853 *NAMESPACE
 0eb79eb78819557455c74b01430627d1 *R/data.R
 308e1f92d20c72d05dde540a5b2b97ed *R/dimensionality_reduction.R
@@ -12,7 +12,7 @@ c08f16d2a374225e6fa31c76e6a3d289 *R/package.R
 606614354ff6f36879e800944560924b *R/plotting.R
 cd2a9d1fc36cb2e19ec16192d2a31e86 *R/scaling.R
 7984bbfb2d69fd84233cfbc44e9abb54 *R/trajectory_inference.R
-662f041badda189605f2d4ea2aa55bcd *README.md
+c018645761b6c3b4ff19d9d31d0989cc *README.md
 262fff584231f24e09e2f311e83f5833 *build/vignette.rds
 e37f3b5959cb3801a4abc64967ecf3c4 *data/datalist
 185be754adfcb71888fee9c4575e1253 *data/ginhoux.rda
@@ -51,7 +51,7 @@ d594725d95b81ab8042d38038a78ee1d *man/reexports.Rd
 c7342997c645f4a1201e6997b3783d5b *tests/testthat/test-gene_importances.R
 4c48f6a0798d8d837e50563c13af87bd *tests/testthat/test-knn.R
 77a519a537a6ef6815d72b3bb4fe5721 *tests/testthat/test-scaling.R
-8bfb653c407db8fe747d7006632e3327 *tests/testthat/test-sparse.R
+4b9bb52d47d7ab538c078c5329c0e1d2 *tests/testthat/test-sparse.R
 1b55d9ce933c1f9b7763fff4eef2d371 *tests/testthat/test-trajectory_inference.R
 184abad7127b1ba0a711128a7656209b *vignettes/ginhoux.Rmd
 3d792e877a2c5832d1f35d04c8095183 *vignettes/simulated-data.Rmd
