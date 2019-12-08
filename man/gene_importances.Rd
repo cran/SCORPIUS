@@ -4,8 +4,16 @@
 \alias{gene_importances}
 \title{Calculate the importance of a feature}
 \usage{
-gene_importances(x, time, num_permutations = 0, ntree = 10000,
-  ntree_perm = ntree/10, mtry = ncol(x) * 0.01, num_threads = 1, ...)
+gene_importances(
+  x,
+  time,
+  num_permutations = 0,
+  ntree = 10000,
+  ntree_perm = ntree/10,
+  mtry = ncol(x) * 0.01,
+  num_threads = 1,
+  ...
+)
 }
 \arguments{
 \item{x}{A numeric matrix or a data frame with \emph{M} rows (one per sample) and \emph{P} columns (one per feature).}

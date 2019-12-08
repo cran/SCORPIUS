@@ -1,4 +1,16 @@
-SCORPIUS 1.0.4
+# SCORPIUS 1.0.5
+
+## Major change
+ * Added a `ti_scorpius()` wrapper to SCORPIUS.
+   
+## Minor change
+ * Use `RANN::nn2()` instead of own nearest neighbour functions. 
+ 
+ * Remove deprecated functions.
+ 
+ * Use `lmds` instead of `dyndimred`.
+
+# SCORPIUS 1.0.4 (07-08-2019)
 
 ## Minor changes
  
@@ -12,7 +24,7 @@ SCORPIUS 1.0.4
  * Minor improvement in `infer_initial_trajectory()` when calculating the distance from points to 
    along candidate segments.
 
-SCORPIUS 1.0.3 (27-05-2019)
+# SCORPIUS 1.0.3 (27-05-2019)
 
 ## Optimisation
 
@@ -55,7 +67,7 @@ SCORPIUS 1.0.3 (27-05-2019)
    Use `dyneval::evaluate_ti_method()` instead.
 
 
-SCORPIUS 1.0.2 (2018-06-29)
+# SCORPIUS 1.0.2 (2018-06-29)
 
  * MINOR CHANGE: Depend on dynutils for distance functions.
  
@@ -65,7 +77,7 @@ SCORPIUS 1.0.2 (2018-06-29)
  * REMOVAL: Removed `outlier_filter()`; there are much better scRNA-seq preprocessing
    pipelines in existance by now.
 
-SCORPIUS 1.0.1 (2018-06-21)
+# SCORPIUS 1.0.1 (2018-06-21)
 
  * MINOR CHANGE: Update for princurve 2.0.2.
 
@@ -75,6 +87,6 @@ SCORPIUS 1.0.1 (2018-06-21)
 
  * TESTING: Calculate code coverage on travis.
  
-SCORPIUS 1.0.0 (2017-09-15)
+# SCORPIUS 1.0.0 (2017-09-15)
 
  * Initial release on CRAN.

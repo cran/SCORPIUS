@@ -6,6 +6,8 @@ Status](https://travis-ci.org/rcannood/SCORPIUS.svg?branch=master)](https://trav
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/rcannood/SCORPIUS?branch=master&svg=true)](https://ci.appveyor.com/project/rcannood/SCORPIUS)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/SCORPIUS)](https://cran.r-project.org/package=SCORPIUS)
+[![Coverage
+Status](https://codecov.io/gh/rcannood/SCORPIUS/branch/master/graph/badge.svg)](https://codecov.io/gh/rcannood/SCORPIUS?branch=master)
 
 **SCORPIUS an unsupervised approach for inferring linear developmental
 chronologies from single-cell RNA sequencing data.** In comparison to
@@ -154,12 +156,26 @@ draw_trajectory_heatmap(expr_sel, traj$time, group_name, modules)
 
 ## Latest changes
 
-Check out `news(package = "SCORPIUS")` for a full list of
-changes.
+Check out `news(package = "SCORPIUS")` or [NEWS.md](NEWS.md) for a full
+list of changes.
 
-<!-- This section gets automatically generated from inst/NEWS.md, and also generates inst/NEWS -->
+<!-- This section gets automatically generated from NEWS.md -->
 
-### Recent changes in SCORPIUS 1.0.4
+### Recent changes in SCORPIUS 1.0.5
+
+#### Major change
+
+  - Added a `ti_scorpius()` wrapper to SCORPIUS.
+
+#### Minor change
+
+  - Use `RANN::nn2()` instead of own nearest neighbour functions.
+
+  - Remove deprecated functions.
+
+  - Use `lmds` instead of `dyndimred`.
+
+### Recent changes in SCORPIUS 1.0.4 (07-08-2019)
 
 #### Minor changes
 
@@ -173,54 +189,6 @@ changes.
 
   - Minor improvement in `infer_initial_trajectory()` when calculating
     the distance from points to along candidate segments.
-
-### Recent changes in SCORPIUS 1.0.3 (27-05-2019)
-
-#### Optimisation
-
-  - `infer_trajectory()`: Use princurve’s `approx_points` parameter,
-    which greatly speeds up for trajectory inference for large number of
-    samples.
-
-#### Major changes
-
-  - Use dynutils’ `calculate_distance()` instead of
-    `correlation_distance()` and `euclidean_distance()`.
-
-#### Documentation
-
-  - Vignettes were updated.
-
-  - Added `cran-comments.md`.
-
-  - Added recent news (`inst/NEWS.md`).
-
-  - Added citation information (`inst/CITATION`).
-
-  - Added support for sparsity in `extract_modules()` and
-    `dimensionality_reduction()`.
-
-#### Minor changes
-
-  - Use scaling functions from dynutils (`scale_minmax()`,
-    `scale_quantile()`, `scale_uniform()`).
-
-  - Expanded unit tests.
-
-  - Renormalise the original ginhoux data using dynnormaliser and rerun
-    all vignettes.
-
-  - Moved `cmdscale_withlandmarks()` to dyndimred.
-
-#### Bug fixes
-
-  - `extract_modules()`: `smooth.spline()` now requires at least 4
-    unique values.
-
-#### Deprecation
-
-  - Deprecated unused functions `evaluate_trajectory()` and
-    `evaluate_dim_red()`. Use `dyneval::evaluate_ti_method()` instead.
 
 ## References
 
