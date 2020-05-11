@@ -2,7 +2,7 @@ Package: SCORPIUS
 Type: Package
 Title: Inferring Developmental Chronologies from Single-Cell RNA
         Sequencing Data
-Version: 1.0.6
+Version: 1.0.7
 Description: An accurate and easy tool for performing linear trajectory inference on
   single cells using single-cell RNA sequencing data. In addition, SCORPIUS
   provides functions for discovering the most important genes with respect to
@@ -27,19 +27,19 @@ Encoding: UTF-8
 URL: http://github.com/rcannood/SCORPIUS
 BugReports: https://github.com/rcannood/SCORPIUS/issues
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 VignetteBuilder: knitr, R.rsp
 Depends: R (>= 3.0.0)
 Imports: dplyr, dynutils (>= 1.0.3), dynwrap, grDevices, ggplot2 (>=
         2.0), lmds, MASS, Matrix, mclust, methods, pbapply, pheatmap,
-        princurve (>= 2.1.4), purrr, ranger, RANN, RColorBrewer, stats,
-        tidyr, TSP
+        princurve (>= 2.1.4), purrr, ranger, RANN, RColorBrewer,
+        reshape2, stats, tidyr, TSP
 Suggests: knitr, rmarkdown, R.rsp, testthat (>= 2.1.0)
 NeedsCompilation: no
-Packaged: 2020-03-16 14:01:18 UTC; rcannood
+Packaged: 2020-05-11 09:58:52 UTC; rcannood
 Author: Robrecht Cannoodt [aut, cre] (<https://orcid.org/0000-0003-3641-729X>,
     rcannood),
   Wouter Saelens [ctb] (<https://orcid.org/0000-0002-7114-6248>, zouter)
 Maintainer: Robrecht Cannoodt <rcannood@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-03-16 16:20:02 UTC
+Date/Publication: 2020-05-11 11:00:06 UTC
