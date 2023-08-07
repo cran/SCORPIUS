@@ -1,3 +1,17 @@
+# SCORPIUS 1.0.9
+
+* Resubmission after babelwhale was removed from CRAN.
+
+* DOCUMENTATION: Add vignette for working with AnnData objects.
+
+* DOCUMENTATION: Add vignette for working with SingleCellExperiment objects.
+
+* DOCUMENTATION: Create pkgdown site.
+
+* DOCUMENTATION: Update citEntry to bibentry.
+
+* DOCUMENTATION: Reduce execution time of examples by downscaling the example dataset.
+
 # SCORPIUS 1.0.8
 
 * MINOR CHANGE: Allow adding row annotations to `draw_trajectory_heatmap()`.

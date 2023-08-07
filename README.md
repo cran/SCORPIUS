@@ -1,14 +1,16 @@
 
 # SCORPIUS
 
-[![R build
-status](https://github.com/rcannood/SCORPIUS/workflows/R-CMD-check/badge.svg)](https://github.com/rcannood/SCORPIUS/actions)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/SCORPIUS)](https://cran.r-project.org/package=SCORPIUS)
-[![Coverage
-Status](https://codecov.io/gh/rcannood/SCORPIUS/branch/master/graph/badge.svg)](https://codecov.io/gh/rcannood/SCORPIUS?branch=master)
+<!-- badges: start -->
 
-**SCORPIUS an unsupervised approach for inferring linear developmental
-chronologies from single-cell RNA sequencing data.** In comparison to
+[![R-CMD-check](https://github.com/rcannood/SCORPIUS/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rcannood/SCORPIUS/actions/workflows/R-CMD-check.yaml)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/SCORPIUS)](https://cran.r-project.org/package=SCORPIUS)
+[![Codecov test
+coverage](https://codecov.io/gh/rcannood/SCORPIUS/branch/master/graph/badge.svg)](https://app.codecov.io/gh/rcannood/SCORPIUS?branch=master)
+<!-- badges: end -->
+
+SCORPIUS an unsupervised approach for inferring linear developmental
+chronologies from single-cell RNA sequencing data. In comparison to
 similar approaches, it has three main advantages:
 
 -   **It accurately reconstructs linear dynamic processes.** The
@@ -26,13 +28,12 @@ News:
 -   See `news(package = "SCORPIUS")` for a full list of changes to the
     package.
 
--   A preprint is available on
-    [bioRxiv](https://biorxiv.org/content/early/2016/10/07/079509). Run
-    `citation("SCORPIUS")` to obtain the corresponding citation
-    information.
+-   Our preprint is on
+    [bioRxiv](https://biorxiv.org/content/early/2016/10/07/079509)
+    (Cannoodt et al. 2016).
 
 -   Check out our [review](https://dx.doi.org/10.1038/s41587-019-0071-9)
-    on Trajectory Inference methods!
+    on Trajectory Inference methods (Saelens et al. 2019).
 
 ## Installing SCORPIUS
 
@@ -58,10 +59,12 @@ the [issues](https://github.com/rcannood/SCORPIUS/issues) page.
 To get started, read the introductory example below, or read one of the
 vignettes containing more elaborate examples:
 
+-   Running SCORPIUS on an AnnData object:  
+    `vignette("anndata", package="SCORPIUS")`
 -   Investigating dendritic cell maturation in dendritic cell
     progenitors:  
     `vignette("ginhoux", package="SCORPIUS")`
--   Running SCOPIUS on a Seurat object:  
+-   Running SCORPIUS on a Seurat object:  
     `vignette("seurat", package="SCORPIUS")`
 -   Trajectory inference from simulated data:  
     `vignette("simulated-data", package="SCORPIUS")`
@@ -78,7 +81,7 @@ To start using SCORPIUS, simply write:
 library(SCORPIUS)
 ```
 
-The `ginhoux` dataset (See Schlitzer et al. 2015) contains 248 dendritic
+The `ginhoux` dataset (Schlitzer et al. 2015) contains 248 dendritic
 cell progenitors in one of three cellular cellular states: MDP, CDP or
 PreDC. Note that this is a reduced version of the dataset, for packaging
 reasons. See ?ginhoux for more info.
@@ -136,38 +139,52 @@ expr_sel <- scale_quantile(expression[,gene_sel])
 To visualise the expression of the selected genes, use the
 `draw_trajectory_heatmap` function.
 
+``` r
+draw_trajectory_heatmap(expr_sel, traj$time, group_name)
+```
+
+![](man/figures/README_visualise_tafs-1.png)<!-- -->
+
 Finally, these genes can also be grouped into modules as follows:
 
-## Latest changes
+``` r
+modules <- extract_modules(scale_quantile(expr_sel), traj$time, verbose = F)
+draw_trajectory_heatmap(expr_sel, traj$time, group_name, modules)
+```
 
-Check out `news(package = "SCORPIUS")` or [NEWS.md](NEWS.md) for a full
-list of changes.
-
-<!-- This section gets automatically generated from NEWS.md -->
-
-### Recent changes in SCORPIUS 1.0.8
-
--   MINOR CHANGE: Allow adding row annotations to
-    `draw_trajectory_heatmap()`.
-
-### Recent changes in SCORPIUS 1.0.7 (2020-05-11)
-
-Fix ahead of dplyr 1.0 release.
-
--   MINOR CHANGE: substitute as.tbl\_cube for reshape2::melt.
+![](man/figures/README_moduled_tafs-1.png)<!-- -->
 
 ## References
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 
+<div id="ref-Cannoodt2016" class="csl-entry">
+
+Cannoodt, Robrecht, Wouter Saelens, Dorine Sichien, Simon Tavernier,
+Sophie Janssens, Martin Guilliams, Bart Lambrecht, Katleen De Preter,
+and Yvan Saeys. 2016. “SCORPIUS Improves Trajectory Inference and
+Identifies Novel Modules in Dendritic Cell Development,” October.
+<https://doi.org/10.1101/079509>.
+
+</div>
+
+<div id="ref-Saelens2019" class="csl-entry">
+
+Saelens, Wouter, Robrecht Cannoodt, Helena Todorov, and Yvan Saeys.
+2019. “A Comparison of Single-Cell Trajectory Inference Methods.”
+*Nature Biotechnology* 37 (5): 547–54.
+<https://doi.org/10.1038/s41587-019-0071-9>.
+
+</div>
+
 <div id="ref-Schlitzer2015" class="csl-entry">
 
 Schlitzer, Andreas, V Sivakamasundari, Jinmiao Chen, Hermi Rizal Bin
 Sumatoh, Jaring Schreuder, Josephine Lum, Benoit Malleret, et al. 2015.
-“<span class="nocase">Identification of cDC1- and cDC2-committed DC
-progenitors reveals early lineage priming at the common DC progenitor
-stage in the bone marrow</span>.” *Nature Immunology* 16 (7): 718–26.
-<https://doi.org/10.1038/ni.3200>.
+“Identification of <span class="nocase">cDC</span>1- and <span
+class="nocase">cDC</span>2-Committed DC Progenitors Reveals Early
+Lineage Priming at the Common DC Progenitor Stage in the Bone Marrow.”
+*Nature Immunology* 16 (7): 718–28. <https://doi.org/10.1038/ni.3200>.
 
 </div>
 
