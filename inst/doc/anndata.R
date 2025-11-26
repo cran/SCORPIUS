@@ -1,4 +1,4 @@
-## ---- setup, echo=FALSE-------------------------------------------------------
+## ----setup, echo=FALSE--------------------------------------------------------
 set.seed(1)
 knitr::opts_chunk$set(eval = reticulate::py_module_available("anndata"))
 
